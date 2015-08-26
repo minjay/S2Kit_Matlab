@@ -1,4 +1,4 @@
-function a = spharmonic_tran(fun_sample_file, bw, directory)
+function alm = spharmonic_tran(samples, bw, directory)
 %SPHARMONIC_TRAN Spherical harmonic transform using the semi-naive
 %DLT. Precomputes all necessary associated Legendre functions prior to
 %transforming.
@@ -22,24 +22,43 @@ function a = spharmonic_tran(fun_sample_file, bw, directory)
 %
 %   Written by Minjie Fan
 
-filename = ['coef', fun_sample_file];
-system([directory, '/test_s2_semi_memo_for ', fun_sample_file, ' ', filename, ' ',...
+n = length(samples);
+
+% open the file
+fid = fopen('samples.dat', 'w');
+
+% write to the file
+for i = 1:n
+    fprintf(fid, '%.15f\n', samples(i));
+    fprintf(fid, '%.15f\n', 0);
+end
+
+% close the file
+fclose(fid);
+
+% spherical harmonic transform
+system([directory, '/test_s2_semi_memo_for', ' samples.dat coefs.dat ',...
     num2str(bw),' 0']);
-tmp = textread( filename );
+
+% remove the file
+system('rm samples.dat');
+
+% obtain the coefficients
+tmp = textread('coefs.dat');
 index = 0;
-a = zeros(bw, 2*bw-1);
+alm = zeros(bw, 2*bw-1);
 for m = 0:bw-1
     for l = m:bw-1
         index = index+1;
-        a(l+1,m+bw) = tmp( 2*index-1 )+tmp( 2*index )*1i;
+        alm(l+1, m+bw) = tmp(2*index-1)+tmp(2*index)*1i;
     end
 end
 for m = 1-bw:-1
     for l = abs(m):bw-1
         index = index+1;
-        a(l+1,m+bw) = tmp( 2*index-1 )+tmp( 2*index )*1i;
+        alm(l+1, m+bw) = tmp(2*index-1)+tmp(2*index)*1i;
     end
-end
-system(['rm ', filename]);
+end 
+system('rm coefs.dat');
 
 end

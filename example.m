@@ -16,55 +16,27 @@
 % typically bw<=500
 bw = 16;
 
-% open the file
-filename = 'gen_coefs.dat';
-fid = fopen(filename, 'w');
-
 % init
 % a[l+1, m+bw] saves a_{l,m}
-a = zeros(bw, 2*bw-1);
+alm = zeros(bw, 2*bw-1);
 
 % randomly generate the coefficients a_{l,m}
 for l = 0:bw-1
     for m = 1:l
-        a(l+1, m+bw) = randn+randn*1i;
+        alm(l+1, m+bw) = randn+randn*1i;
     end
     for m = -l:-1
-        a(l+1, m+bw) = (-1)^m*conj(a(l+1, -m+bw));
+        alm(l+1, m+bw) = (-1)^m*conj(alm(l+1, -m+bw));
     end
-    a(l+1, bw)=randn;
+    alm(l+1, bw)=randn;
 end
-
-% write to a file
-for m = 0:bw-1
-    for l = m:bw-1
-        fprintf(fid, '%.15f\n', real(a(l+1, m+bw)));
-        fprintf(fid, '%.15f\n', imag(a(l+1, m+bw)));
-    end
-end
-for m = 1-bw:-1
-    for l = abs(m):bw-1
-        fprintf(fid, '%.15f\n', real(a(l+1, m+bw)));
-        fprintf(fid, '%.15f\n', imag(a(l+1, m+bw)));
-    end
-end
-
-fclose(fid);
 
 % inverse spherical harmonic transform
-system(['./test_s2_semi_memo_inv ', 'gen_coefs.dat', ' gen_fun_samples.dat ', num2str(bw)]);
-
-system('rm gen_coefs.dat');
-
-tmp = textread('gen_fun_samples.dat');
-% the samples
-samples = tmp(1:2:length(tmp));
+samples = inv_spharmonic_tran(alm, bw, pwd);
 
 % spherical harmonic transform
-a_fitted = spharmonic_tran('gen_fun_samples.dat', bw, pwd);
-
-system('rm gen_fun_samples.dat');
+alm_fitted = spharmonic_tran(samples, bw, pwd);
 
 % compare
-sum(sum(abs(a-a_fitted)))
+mean(mean(abs(alm-alm_fitted)))
     
