@@ -51,13 +51,16 @@ end
 
 fclose(fid);
 
+% inverse spherical harmonic transform
 system(['./test_s2_semi_memo_inv ', 'gen_coefs.dat', ' gen_fun_samples.dat ', num2str(bw)]);
 
 system('rm gen_coefs.dat');
 
 tmp = textread('gen_fun_samples.dat');
+% the samples
 samples = tmp(1:2:length(tmp));
 
+% spherical harmonic transform
 a_fitted = spharmonic_tran('gen_fun_samples.dat', bw, pwd);
 
 system('rm gen_fun_samples.dat');
