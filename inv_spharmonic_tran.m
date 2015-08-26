@@ -1,4 +1,21 @@
 function samples = inv_spharmonic_tran(alm, bw, directory)
+%INV_SPHARMONIC_TRAN   Inverse spherical harmonic transform, a wrapper of 
+%test_s2_semi_memo_inv.
+%
+%   samples = inv_spharmonic_tran(alm, bw, directory);
+%
+% Inputs:
+%   a: the spherical harmonic coefficients. It is a bw-by-(2*bw-1) matrix. 
+%   The entry in the i-th row and the j-th column is the spherical harmonic 
+%   coefficient with l=i-1, m=j-bw.
+%   bw: the bandwidth of the bandlimited function. 
+%   directory: the directory where you put S2Kit, e.g., 
+%   /path/to/directory/s2kit10
+%   
+% Outputs:
+%   samples: f(\theta_0, \phi_0), f(\theta_0, \phi_1),...
+%
+% Written by Minjie Fan, 2015
 
 % open the file
 fid = fopen('coefs.dat', 'w');

@@ -1,14 +1,11 @@
 function alm = spharmonic_tran(samples, bw, directory)
-%SPHARMONIC_TRAN Spherical harmonic transform using the semi-naive
-%DLT. Precomputes all necessary associated Legendre functions prior to
-%transforming.
+%SPHARMONIC_TRAN   Spherical harmonic transform, a wrapper of 
+%test_s2_semi_memo_for.
 %
-%   spharmonic_tran(fun_sample_file, bw, directory);
+%   spharmonic_tran(samples, bw, directory);
 %
 % Inputs:
-%   fun_sample_file: the name of the file that stores the samples of a
-%   bandlimited function. The samples are arranged in interleaved 
-%   real/imaginary format. 
+%   samples: f(\theta_0, \phi_0), f(\theta_0, \phi_1),...
 %   bw: the bandwidth of the bandlimited function. 
 %   directory: the directory where you put S2Kit, e.g., 
 %   /path/to/directory/s2kit10
@@ -18,9 +15,7 @@ function alm = spharmonic_tran(samples, bw, directory)
 %   The entry in the i-th row and the j-th column is the spherical harmonic 
 %   coefficient with l=i-1, m=j-bw.
 %
-%   See the packages SpharmonicKit and S2Kit for details.
-%
-%   Written by Minjie Fan
+% Written by Minjie Fan, 2015
 
 n = length(samples);
 
