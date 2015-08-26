@@ -28,7 +28,7 @@ for m = 0:bw-1
     end
 end
 for m = 1-bw:-1
-    for l = abs(m):bw-1
+    for l = (-m):bw-1
         fprintf(fid, '%.15f\n', real(alm(l+1, m+bw)));
         fprintf(fid, '%.15f\n', imag(alm(l+1, m+bw)));
     end
