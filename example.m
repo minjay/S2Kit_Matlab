@@ -3,7 +3,7 @@
 % (2) Performing an inverse spherical harmonic transform and obtaining the
 % samples of a function;
 % (3) Performing a spherical harmonic transform;
-% (4) Comparing the fitted and the true values of the spherical harmonic 
+% (4) Comparing the true and the fitted values of the spherical harmonic 
 % coefficients.
 
 % We assume that the function is real-valued. Thus, the spherical
