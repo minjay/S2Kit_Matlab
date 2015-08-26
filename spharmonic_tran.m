@@ -3,7 +3,7 @@ function a = spharmonic_tran(fun_sample_file, bw, directory)
 %DLT. Precomputes all necessary associated Legendre functions prior to
 %transforming.
 %
-%   spharmonic_tran(fun_sample_file, bw) 
+%   spharmonic_tran(fun_sample_file, bw, directory);
 %
 % Inputs:
 %   fun_sample_file: the name of the file that stores the samples of a
