@@ -49,7 +49,7 @@ for m = 0:bw-1
     end
 end
 for m = 1-bw:-1
-    for l = abs(m):bw-1
+    for l = (-m):bw-1
         index = index+1;
         alm(l+1, m+bw) = tmp(2*index-1)+tmp(2*index)*1i;
     end
