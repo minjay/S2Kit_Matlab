@@ -1,36 +1,41 @@
-function Spharmonic_coef = spharmonic_tran( fun_sample_file, bw )
+function a = spharmonic_tran(fun_sample_file, bw, directory)
 %SPHARMONIC_TRAN Spherical harmonic transform using the semi-naive
 %DLT. Precomputes all necessary associated Legendre functions prior to
 %transforming.
 %
-%   spharmonic_tran( fun_sample_file, bw ) is the spherical
-%   harmonic transform of the function samples stored in the file with name
-%   fun_sample_file. The samples in the file fun_sample_file are arranged
-%   in interleaved real/imaginary format. bw denotes the bandwidth of
-%   the bandlimited function. SPHARMONIC_TRAN returns the coefficients in
-%   the bw by 2bw-1 matrix Spharmonic_coef. The entry in the ith row and the
-%   jth column represents the coefficient corresponding to l=i-1, m=j-B.
+%   spharmonic_tran(fun_sample_file, bw) 
 %
-%   See the packages SpharmonicKit and S2kit for details.
+% Inputs:
+%   fun_sample_file: the name of the file that stores the samples of a
+%   bandlimited function. The samples are arranged in interleaved 
+%   real/imaginary format. 
+%   bw: the bandwidth of the bandlimited function. 
+%
+% Outputs:
+%   a: the spherical harmonic coefficients. It is a bw-by-(2*bw-1) matrix. 
+%   The entry in the i-th row and the j-th column is the spherical harmonic 
+%   coefficient with l=i-1, m=j-bw.
+%
+%   See the packages SpharmonicKit and S2Kit for details.
 %
 %   Written by Minjie Fan
 
 filename = ['coef', fun_sample_file];
-system(['./test_s2_semi_memo_for ', fun_sample_file, ' ', filename, ' ',...
+system([directory, '/test_s2_semi_memo_for ', fun_sample_file, ' ', filename, ' ',...
     num2str(bw),' 0']);
 tmp = textread( filename );
 index = 0;
-Spharmonic_coef = zeros(bw, 2*bw-1);
+a = zeros(bw, 2*bw-1);
 for m = 0:bw-1
     for l = m:bw-1
         index = index+1;
-        Spharmonic_coef(l+1,m+bw) = tmp( 2*index-1 )+tmp( 2*index )*1i;
+        a(l+1,m+bw) = tmp( 2*index-1 )+tmp( 2*index )*1i;
     end
 end
 for m = 1-bw:-1
     for l = abs(m):bw-1
         index = index+1;
-        Spharmonic_coef(l+1,m+bw) = tmp( 2*index-1 )+tmp( 2*index )*1i;
+        a(l+1,m+bw) = tmp( 2*index-1 )+tmp( 2*index )*1i;
     end
 end
 system(['rm ', filename]);
