@@ -1,4 +1,11 @@
-% Generate the samples of a function.
+% An example of
+% (1) Randomly generating spherical harmonic coefficients;
+% (2) Performing an inverse spherical harmonic transform and obtaining the
+% samples of a function;
+% (3) Performing a spherical harmonic transform
+% (4) Comparing the fitted and the true values of the spherical harmonic 
+% coefficients.
+
 % We assume that the function is real-valued. Thus, the spherical
 % harmonic coefficients a_{l,m} satisfy:
 % a_{l,0}'s are real numbers;
