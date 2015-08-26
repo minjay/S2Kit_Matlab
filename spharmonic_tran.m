@@ -11,7 +11,7 @@ function alm = spharmonic_tran(samples, bw, directory)
 %   /path/to/directory/s2kit10.
 %
 % Outputs:
-%   a: the spherical harmonic coefficients. It is a bw-by-(2*bw-1) matrix. 
+%   alm: the spherical harmonic coefficients. It is a bw-by-(2*bw-1) matrix. 
 %   The entry in the i-th row and the j-th column is the spherical harmonic 
 %   coefficient with l=i-1, m=j-bw.
 %

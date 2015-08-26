@@ -5,7 +5,7 @@ function samples = inv_spharmonic_tran(alm, bw, directory)
 %   samples = inv_spharmonic_tran(alm, bw, directory);
 %
 % Inputs:
-%   a: the spherical harmonic coefficients. It is a bw-by-(2*bw-1) matrix. 
+%   alm: the spherical harmonic coefficients. It is a bw-by-(2*bw-1) matrix. 
 %   The entry in the i-th row and the j-th column is the spherical harmonic 
 %   coefficient with l=i-1, m=j-bw.
 %   bw: the bandwidth of the bandlimited function. 
