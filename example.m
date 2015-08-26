@@ -17,7 +17,7 @@
 bw = 16;
 
 % init
-% a[l+1, m+bw] stores a_{l,m}
+% alm(l+1, m+bw) stores a_{l,m}
 alm = zeros(bw, 2*bw-1);
 
 % randomly generate the coefficients a_{l,m}
