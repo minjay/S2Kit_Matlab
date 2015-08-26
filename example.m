@@ -2,7 +2,7 @@
 % (1) Randomly generating spherical harmonic coefficients;
 % (2) Performing an inverse spherical harmonic transform and obtaining the
 % samples of a function;
-% (3) Performing a spherical harmonic transform
+% (3) Performing a spherical harmonic transform;
 % (4) Comparing the fitted and the true values of the spherical harmonic 
 % coefficients.
 
