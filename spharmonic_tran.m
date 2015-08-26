@@ -8,7 +8,7 @@ function alm = spharmonic_tran(samples, bw, directory)
 %   samples: f(\theta_0, \phi_0), f(\theta_0, \phi_1),...
 %   bw: the bandwidth of the bandlimited function. 
 %   directory: the directory where you put S2Kit, e.g., 
-%   /path/to/directory/s2kit10
+%   /path/to/directory/s2kit10.
 %
 % Outputs:
 %   a: the spherical harmonic coefficients. It is a bw-by-(2*bw-1) matrix. 

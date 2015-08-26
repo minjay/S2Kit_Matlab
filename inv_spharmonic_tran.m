@@ -10,7 +10,7 @@ function samples = inv_spharmonic_tran(alm, bw, directory)
 %   coefficient with l=i-1, m=j-bw.
 %   bw: the bandwidth of the bandlimited function. 
 %   directory: the directory where you put S2Kit, e.g., 
-%   /path/to/directory/s2kit10
+%   /path/to/directory/s2kit10.
 %   
 % Outputs:
 %   samples: f(\theta_0, \phi_0), f(\theta_0, \phi_1),...
