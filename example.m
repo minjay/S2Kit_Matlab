@@ -38,5 +38,5 @@ samples = inv_spharmonic_tran(alm, bw, pwd);
 alm_fitted = spharmonic_tran(samples, bw, pwd);
 
 % compare
-mean(mean(abs(alm-alm_fitted)))
+sum(sum(abs(alm-alm_fitted)))
     
