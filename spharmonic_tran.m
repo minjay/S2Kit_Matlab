@@ -10,6 +10,8 @@ function a = spharmonic_tran(fun_sample_file, bw, directory)
 %   bandlimited function. The samples are arranged in interleaved 
 %   real/imaginary format. 
 %   bw: the bandwidth of the bandlimited function. 
+%   directory: the directory where you put S2Kit, e.g., 
+%   /path/to/directory/s2kit10
 %
 % Outputs:
 %   a: the spherical harmonic coefficients. It is a bw-by-(2*bw-1) matrix. 
