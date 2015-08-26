@@ -49,4 +49,3 @@ samples = tmp(1:2:length(tmp));
 system('rm samples.dat');
 
 end
-
