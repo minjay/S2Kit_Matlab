@@ -45,7 +45,7 @@ system('rm coefs.dat');
 
 % obtain the samples
 tmp = textread('samples.dat');
-samples = tmp(1:2:length(tmp));
+samples = tmp(1:2:end);
 system('rm samples.dat');
 
 end
