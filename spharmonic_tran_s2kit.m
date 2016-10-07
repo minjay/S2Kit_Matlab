@@ -1,8 +1,8 @@
-function alm = spharmonic_tran(samples, bw, directory)
-%SPHARMONIC_TRAN   Spherical harmonic transform, a wrapper of 
+function alm = spharmonic_tran_s2kit(samples, bw, directory)
+%SPHARMONIC_TRAN_S2KIT   Spherical harmonic transform, a wrapper of 
 %test_s2_semi_memo_for.
 %
-%   spharmonic_tran(samples, bw, directory);
+%   spharmonic_tran_s2kit(samples, bw, directory);
 %
 % Inputs:
 %   samples: f(\theta_0, \phi_0), f(\theta_0, \phi_1),...

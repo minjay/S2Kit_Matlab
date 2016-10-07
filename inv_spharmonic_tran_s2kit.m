@@ -1,8 +1,8 @@
-function samples = inv_spharmonic_tran(alm, bw, directory)
-%INV_SPHARMONIC_TRAN   Inverse spherical harmonic transform, a wrapper of 
+function samples = inv_spharmonic_tran_s2kit(alm, bw, directory)
+%INV_SPHARMONIC_TRAN_S2KIT   Inverse spherical harmonic transform, a wrapper of 
 %test_s2_semi_memo_inv.
 %
-%   samples = inv_spharmonic_tran(alm, bw, directory);
+%   samples = inv_spharmonic_tran_s2kit(alm, bw, directory);
 %
 % Inputs:
 %   alm: the spherical harmonic coefficients. It is a bw-by-(2*bw-1) matrix. 

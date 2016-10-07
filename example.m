@@ -32,10 +32,10 @@ for l = 0:bw-1
 end
 
 % inverse spherical harmonic transform
-samples = inv_spharmonic_tran(alm, bw, pwd);
+samples = inv_spharmonic_tran_s2kit(alm, bw, pwd);
 
 % spherical harmonic transform
-alm_fitted = spharmonic_tran(samples, bw, pwd);
+alm_fitted = spharmonic_tran_s2kit(samples, bw, pwd);
 
 % compare
 sum(sum(abs(alm-alm_fitted)))
